@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputs = document.querySelectorAll(
     "input[required], textarea[required]"
   );
+  const minMaxCharElement = document.querySelector(".minmax-character");
 
   const validBgColor = "#8fb16925";
   const notValidBgColor = "#ff000050";
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         input.value.length > 1000) ||
       (input.tagName.toLowerCase() === "textarea" && input.value.length < 10)
     ) {
-      // Check for textarea exceeding 1000 characters
+      
       valid = false;
       input.style.borderColor = notValidBorderColor;
       input.style.backgroundColor = notValidBgColor;
@@ -71,10 +72,26 @@ document.addEventListener("DOMContentLoaded", function () {
     return valid;
   }
 
+// Function to update textarea character count and stop input at 1000 characters
+  function updateTextareaCount(textarea) {
+    const maxLength = 1000;
+    const length = textarea.value.length;
+    const remaining = maxLength - length;
+
+    if (remaining <= 0) {
+      textarea.value = textarea.value.substring(0, maxLength); // Trim to max length
+    }
+
+    minMaxCharElement.innerHTML = `(${Math.max(remaining,0)} - 1000)<span> Characters Left</span>`;
+  }
+
   // Add event listeners for real-time validation
   inputs.forEach((input) => {
     input.addEventListener("input", function () {
       validateInput(input);
+      if (input.tagName.toLowerCase() === "textarea") {
+        updateTextareaCount(input);
+      }
     });
 
     // Add blur event listener for when user leaves the input without writing
