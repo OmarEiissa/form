@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="css/master.css">
+    <title>Form Page</title>
+</head>
+
+<body>
+    <div class="form">
+        <div class="header">
+            <h1>Complaints</h1>
+            <p>Help us improve our service.</p>
+        </div>
+        <div class="hr"><hr></div>
+        <form action="" method="get" target="_blank">
+            <div class="name">
+                <label for="name">Full name <span>*</span></label>
+                <input type="text" id="name" name="user" placeholder=" First" required>
+                <input type="text" id="name" name="user" placeholder=" Last" required>
+            </div>
+            <br>
+            <div class="email">
+                <label for="email">Email <span>*</span></label>
+                <input type="email" name="email" id="email" placeholder=" e@email.com" required>
+            </div>
+            <br>
+            <div class="phone">
+                <label for="phone">phone</label>
+                <input type="tel" name="phone" id="phone" placeholder=" +20 1222222222">
+            </div>
+            <br>
+            <div class="text">
+                <label for="textarea">Leave us a few words <span>*</span></label>
+                <textarea name="textarea" id="textarea" cols="50" rows="5" placeholder=" Leave us a few words..." required></textarea>
+            </div>
+            <br>
+            <div class="submit">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
